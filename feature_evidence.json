@@ -1,0 +1,288 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-an-about-us-section-displaying-the-council-s-vision-to-create-a-culture-of-innovation-research-and-problem-solving-among-students-and-mission-with-bullet-points-promote-student-research-connect-students-with-industry-problems-conduct-innovation-events-support-startup-ideas",
+      "featureTitle": "Create an About Us section displaying the council's vision ('To create a culture of innovation, research, and problem-solving among students') and mission with bullet points: Promote student research, Connect students with industry problems, Conduct innovation events, Support startup ideas",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AboutSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-team-section-that-displays-team-members-with-their-photo-role-faculty-coordinator-student-president-core-members-or-volunteers-and-department-support-adding-editing-and-removing-team-members",
+      "featureTitle": "Implement a Team section that displays team members with their photo, role (Faculty coordinator, Student president, Core members, or Volunteers), and department. Support adding, editing, and removing team members",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/TeamMemberForm.tsx",
+        "frontend/src/components/TeamSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-events-section-with-two-subsections-past-events-displaying-event-name-date-description-photos-and-outcomes-and-upcoming-events-displaying-registration-link-poster-and-details-support-creating-editing-and-deleting-events-in-both-categories",
+      "featureTitle": "Create an Events section with two subsections: Past Events (displaying event name, date, description, photos, and outcomes) and Upcoming Events (displaying registration link, poster, and details). Support creating, editing, and deleting events in both categories",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/EventForm.tsx",
+        "frontend/src/components/EventsSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-image-gallery-with-category-filters-workshops-hackathons-guest-lectures-competitions-and-field-visits-support-uploading-images-to-specific-categories-and-viewing-them-in-a-gallery-layout",
+      "featureTitle": "Build an Image Gallery with category filters: Workshops, Hackathons, Guest Lectures, Competitions, and Field Visits. Support uploading images to specific categories and viewing them in a gallery layout",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/GallerySection.tsx",
+        "frontend/src/components/GalleryUploadForm.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-project-showcase-section-where-students-can-submit-projects-with-project-title-description-tech-used-team-members-and-demo-link-display-all-submitted-projects-in-a-browsable-format",
+      "featureTitle": "Implement a Project Showcase section where students can submit projects with: Project Title, Description, Tech Used, Team Members, and Demo link. Display all submitted projects in a browsable format",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ProjectShowcaseSection.tsx",
+        "frontend/src/components/ProjectSubmissionForm.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-achievements-section-displaying-student-awards-competition-wins-grants-received-and-research-papers-support-adding-editing-and-removing-achievement-entries",
+      "featureTitle": "Create an Achievements section displaying: Student awards, Competition wins, Grants received, and Research papers. Support adding, editing, and removing achievement entries",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AchievementForm.tsx",
+        "frontend/src/components/AchievementsSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-an-announcements-section-for-posting-meeting-notices-event-updates-and-opportunity-alerts-display-announcements-in-chronological-order-with-timestamps",
+      "featureTitle": "Build an Announcements section for posting: Meeting notices, Event updates, and Opportunity alerts. Display announcements in chronological order with timestamps",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AnnouncementForm.tsx",
+        "frontend/src/components/AnnouncementsSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-industry-collaboration-section-displaying-partner-companies-problem-statements-and-internship-opportunities-support-adding-and-managing-collaboration-entries",
+      "featureTitle": "Create an Industry Collaboration section displaying: Partner companies, Problem statements, and Internship opportunities. Support adding and managing collaboration entries",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/CollaborationForm.tsx",
+        "frontend/src/components/CollaborationSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-resources-section-containing-research-papers-learning-links-tools-for-students-and-innovation-guides-organize-resources-by-category-with-download-external-links",
+      "featureTitle": "Implement a Resources section containing: Research papers, Learning links, Tools for students, and Innovation guides. Organize resources by category with download/external links",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ResourceForm.tsx",
+        "frontend/src/components/ResourcesSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-join-us-register-section-with-a-form-collecting-name-branch-year-skills-and-interest-area-store-submissions-for-review",
+      "featureTitle": "Create a Join Us/Register section with a form collecting: Name, Branch, Year, Skills, and Interest area. Store submissions for review",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/JoinUsSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-a-contact-us-section-displaying-email-faculty-contact-office-location-and-social-media-links",
+      "featureTitle": "Build a Contact Us section displaying: Email, Faculty contact, Office location, and Social media links",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ContactSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-cohesive-visual-design-with-an-academic-innovation-theme-using-warm-energetic-colors-orange-teal-or-coral-accents-and-clean-modern-typography-apply-consistent-styling-across-all-sections-with-proper-spacing-cards-and-visual-hierarchy",
+      "featureTitle": "Implement a cohesive visual design with an academic innovation theme using warm, energetic colors (orange, teal, or coral accents) and clean, modern typography. Apply consistent styling across all sections with proper spacing, cards, and visual hierarchy",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-render-generated-images-as-static-assets-in-frontend-public-assets-generated-for-hero-banner-section-icons-and-placeholders",
+      "featureTitle": "Render generated images as static assets in frontend/public/assets/generated for hero banner, section icons, and placeholders",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/HeroSection.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

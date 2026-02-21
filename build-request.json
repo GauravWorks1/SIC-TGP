@@ -1,0 +1,275 @@
+{
+  "kind": "build_request",
+  "title": "Create Student Innovation Council web application",
+  "projectName": "Student Innovation Council",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create an About Us section displaying the council's vision ('To create a culture of innovation, research, and problem-solving among students') and mission with bullet points: Promote student research, Connect students with industry problems, Conduct innovation events, Support startup ideas",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "👨‍🎓 ABOUT US\nVision\nExample:\nTo create a culture of innovation, research, and problem-solving among students.\nMission\nExample:\n•\tPromote student research\n•\tConnect students with industry problems\n•\tConduct innovation events\n•\tSupport startup ideas"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Vision statement is prominently displayed",
+        "Mission items are shown as bullet points",
+        "Section is visually distinct from other content"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a Team section that displays team members with their photo, role (Faculty coordinator, Student president, Core members, or Volunteers), and department. Support adding, editing, and removing team members",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "👥 OUR TEAM\n•\tFaculty coordinator\n•\tStudent president\n•\tCore members\n•\tVolunteers\nAdd:\n•\tPhoto\n•\tRole\n•\tDepartment"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Team members can be added with photo upload, role selection, and department text",
+        "Team members are displayed in a grid or list showing photo, role, and department",
+        "Existing team members can be edited or removed",
+        "Role options include: Faculty coordinator, Student president, Core member, Volunteer"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create an Events section with two subsections: Past Events (displaying event name, date, description, photos, and outcomes) and Upcoming Events (displaying registration link, poster, and details). Support creating, editing, and deleting events in both categories",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "📅 EVENTS\nPast Events\nEach event page:\n•\tEvent name\n•\tDate\n•\tDescription\n•\tPhotos\n•\tOutcomes\nUpcoming Events\n•\tRegistration link\n•\tPoster\n•\tDetails"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Past Events display event name, date, description, multiple photos, and outcomes",
+        "Upcoming Events display registration link, poster image, and details",
+        "Events can be created, edited, and deleted",
+        "Past and Upcoming events are visually separated",
+        "Events are sorted by date"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build an Image Gallery with category filters: Workshops, Hackathons, Guest Lectures, Competitions, and Field Visits. Support uploading images to specific categories and viewing them in a gallery layout",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "🖼 IMAGE GALLERY\nCategories:\n•\tWorkshops\n•\tHackathons\n•\tGuest Lectures\n•\tCompetitions\n•\tField Visits"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Gallery displays images organized by category",
+        "Category filters allow viewing images from specific categories",
+        "Images can be uploaded and assigned to categories",
+        "Gallery uses a responsive grid layout",
+        "Images can be clicked to view full size"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement a Project Showcase section where students can submit projects with: Project Title, Description, Tech Used, Team Members, and Demo link. Display all submitted projects in a browsable format",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "💡 PROJECT SHOWCASE\nStudents can submit:\n•\tProject Title\n•\tDescription\n•\tTech Used\n•\tTeam Members\n•\tDemo link"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Students can submit projects with all required fields",
+        "Submitted projects are displayed with title, description, technologies, team members, and demo link",
+        "Demo links are clickable and open in new tab",
+        "Projects can be browsed in a grid or list view"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create an Achievements section displaying: Student awards, Competition wins, Grants received, and Research papers. Support adding, editing, and removing achievement entries",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "🏆 ACHIEVEMENTS\n•\tStudent awards\n•\tCompetition wins\n•\tGrants received\n•\tResearch papers"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Achievements can be categorized as: Student awards, Competition wins, Grants received, or Research papers",
+        "Each achievement displays its category and details",
+        "Achievements can be added, edited, and deleted",
+        "Achievements are displayed in reverse chronological order"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Build an Announcements section for posting: Meeting notices, Event updates, and Opportunity alerts. Display announcements in chronological order with timestamps",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "📢 ANNOUNCEMENTS\n•\tMeeting notices\n•\tEvent updates\n•\tOpportunity alerts"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Announcements can be created with title, content, and category (Meeting notice, Event update, or Opportunity alert)",
+        "Announcements display with timestamp",
+        "Announcements are sorted by date, newest first",
+        "Announcements can be edited and deleted"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create an Industry Collaboration section displaying: Partner companies, Problem statements, and Internship opportunities. Support adding and managing collaboration entries",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "🤝 INDUSTRY COLLABORATION\n•\tPartner companies\n•\tProblem statements\n•\tInternship opportunities"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Partner companies can be listed with name and description",
+        "Problem statements can be posted with details",
+        "Internship opportunities can be listed with requirements and application links",
+        "Collaboration entries can be added, edited, and removed"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Implement a Resources section containing: Research papers, Learning links, Tools for students, and Innovation guides. Organize resources by category with download/external links",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "📚 RESOURCES\n•\tResearch papers\n•\tLearning links\n•\tTools for students\n•\tInnovation guides"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Resources are categorized as: Research papers, Learning links, Tools for students, or Innovation guides",
+        "Each resource has a title, description, and link or file attachment",
+        "Resources can be added, edited, and deleted",
+        "Resources are organized by category with clear visual separation"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create a Join Us/Register section with a form collecting: Name, Branch, Year, Skills, and Interest area. Store submissions for review",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "📝 JOIN US / REGISTER\nGoogle Form embed:\n•\tName\n•\tBranch\n•\tYear\n•\tSkills\n•\tInterest area"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Registration form includes fields: Name, Branch, Year, Skills, Interest area",
+        "Form validates required fields before submission",
+        "Submissions are stored in backend",
+        "Success message is shown after submission"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Build a Contact Us section displaying: Email, Faculty contact, Office location, and Social media links",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "📞 CONTACT US\n•\tEmail\n•\tFaculty contact\n•\tOffice location\n•\tSocial media links"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact information is clearly displayed",
+        "Email addresses are clickable mailto links",
+        "Social media links open in new tabs",
+        "Office location is prominently shown"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Implement a cohesive visual design with an academic innovation theme using warm, energetic colors (orange, teal, or coral accents) and clean, modern typography. Apply consistent styling across all sections with proper spacing, cards, and visual hierarchy",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Color scheme uses warm, energetic colors that convey innovation and education",
+        "Typography is clean, readable, and consistent",
+        "All sections follow the same design patterns",
+        "Interface feels cohesive and professional"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Render generated images as static assets in frontend/public/assets/generated for hero banner, section icons, and placeholders",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are placed in frontend/public/assets/generated",
+        "Images are referenced correctly in components",
+        "Images load properly in the browser"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use single-actor Motoko architecture for backend",
+    "Do not modify immutable frontend paths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui"
+  ],
+  "nonGoals": [
+    "Integration with external Google Forms",
+    "Real-time chat or messaging features",
+    "Email notification system",
+    "Mobile app version",
+    "Multi-language support"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Hero banner showing diverse students collaborating on innovation projects with laptops and prototype models in a modern workspace (hero-banner.dim_1920x600.png)",
+      "Icon representing innovation and lightbulb idea in orange and teal colors (icon-innovation.dim_128x128.png)",
+      "Icon representing team collaboration with connected people in circular formation (icon-team.dim_128x128.png)",
+      "Icon representing calendar and events with modern geometric style (icon-events.dim_128x128.png)",
+      "Icon representing image gallery with photo grid pattern (icon-gallery.dim_128x128.png)",
+      "Icon representing project showcase with laptop and code symbols (icon-projects.dim_128x128.png)",
+      "Icon representing trophy and achievements in gold tones (icon-achievements.dim_128x128.png)",
+      "Icon representing megaphone and announcements (icon-announcements.dim_128x128.png)",
+      "Icon representing handshake and industry partnership (icon-collaboration.dim_128x128.png)",
+      "Icon representing books and learning resources (icon-resources.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}

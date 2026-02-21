@@ -1,0 +1,388 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Student Innovation Council Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create About Us section with vision and mission",
+      "acceptanceCriteria": [
+        "Vision statement is prominently displayed",
+        "Mission items are shown as bullet points",
+        "Section is visually distinct from other content"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AboutSection.tsx",
+          "operation": "create",
+          "description": "Create AboutSection component displaying the council's vision ('To create a culture of innovation, research, and problem-solving among students') and mission bullet points (Promote student research, Connect students with industry problems, Conduct innovation events, Support startup ideas). Use the icon-innovation.dim_128x128.png from frontend/public/assets/generated as a decorative element."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire AboutSection component into the main App layout. Position it prominently near the top of the page after the hero section."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement Team section with CRUD operations",
+      "acceptanceCriteria": [
+        "Team members can be added with photo upload, role selection, and department text",
+        "Team members are displayed in a grid or list showing photo, role, and department",
+        "Existing team members can be edited or removed",
+        "Role options include: Faculty coordinator, Student president, Core member, Volunteer"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TeamSection.tsx",
+          "operation": "create",
+          "description": "Create TeamSection component displaying public team members in a grid layout with photo, role, and department. Fetch team members using getAllPublicTeamMembers backend method. Use ExternalBlob.getDirectURL() for photo display. Use the icon-team.dim_128x128.png from frontend/public/assets/generated as section header icon. For admins, show edit/delete controls on each team member card."
+        },
+        {
+          "path": "frontend/src/components/TeamMemberForm.tsx",
+          "operation": "create",
+          "description": "Create TeamMemberForm component for adding/editing team members with fields: name (text), role (select with options: Faculty coordinator, Student president, Core member, Volunteer), department (text), and photo (file upload). Use ExternalBlob.fromBytes() for photo uploads with progress tracking. Call addTeamMember or updateTeamMember backend methods. Verify the blob-storage component's usage instructions before implementing file upload. Include admin-only guard check using isCallerAdmin."
+        },
+        {
+          "path": "frontend/src/hooks/useTeamMembers.ts",
+          "operation": "create",
+          "description": "Create custom hook useTeamMembers to fetch, add, update, delete, and publish team members using React Query. Provide queries for getAllPublicTeamMembers, getTeamMembersByRole, and getTeamMembersByDepartment. Include mutations for addTeamMember, updateTeamMember, removeTeamMember, and publishTeamMember with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire TeamSection component into the main App layout. Position it after the About section. Ensure authenticated admins can access the add/edit team member form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create Events section with Past and Upcoming subsections",
+      "acceptanceCriteria": [
+        "Past Events display event name, date, description, multiple photos, and outcomes",
+        "Upcoming Events display registration link, poster image, and details",
+        "Events can be created, edited, and deleted",
+        "Past and Upcoming events are visually separated",
+        "Events are sorted by date"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/EventsSection.tsx",
+          "operation": "create",
+          "description": "Create EventsSection component with two subsections: Past Events and Upcoming Events. Fetch past events using getPastEvents and upcoming events using getUpcomingEvents backend methods. Display past events with name, date, description, photos array (using ExternalBlob.getDirectURL()), and outcomes. Display upcoming events with name, date, description, registration link (clickable), and poster image. Use the icon-events.dim_128x128.png from frontend/public/assets/generated as section header icon. For admins, show edit/delete controls."
+        },
+        {
+          "path": "frontend/src/components/EventForm.tsx",
+          "operation": "create",
+          "description": "Create EventForm component for creating/editing events with fields: name, date, description, photos (multi-file upload), outcomes (for past events), registrationLink (for upcoming events), poster (file upload for upcoming events), and isPast (boolean toggle). Use ExternalBlob.fromBytes() for photo and poster uploads with progress tracking. Call createEvent or updateEvent backend methods. Verify the blob-storage component's usage instructions before implementing file uploads. Include admin-only guard check."
+        },
+        {
+          "path": "frontend/src/hooks/useEvents.ts",
+          "operation": "create",
+          "description": "Create custom hook useEvents to fetch, create, update, delete, and publish events using React Query. Provide queries for getPastEvents and getUpcomingEvents. Include mutations for createEvent, updateEvent, deleteEvent, and publishEvent with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire EventsSection component into the main App layout after the Team section. Ensure authenticated admins can access the event form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build Image Gallery with category filters",
+      "acceptanceCriteria": [
+        "Gallery displays images organized by category",
+        "Category filters allow viewing images from specific categories",
+        "Images can be uploaded and assigned to categories",
+        "Gallery uses a responsive grid layout",
+        "Images can be clicked to view full size"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GallerySection.tsx",
+          "operation": "create",
+          "description": "Create GallerySection component displaying public gallery images in a responsive grid. Fetch images using getAllPublicGalleryImages backend method. Use ExternalBlob.getDirectURL() for image display. Implement category filters for: Workshops, Hackathons, Guest Lectures, Competitions, Field Visits. Use the icon-gallery.dim_128x128.png from frontend/public/assets/generated as section header icon. Support full-size image viewing on click (lightbox or modal). For admins, show upload and delete controls."
+        },
+        {
+          "path": "frontend/src/components/GalleryUploadForm.tsx",
+          "operation": "create",
+          "description": "Create GalleryUploadForm component for uploading images with category selection (Workshops, Hackathons, Guest Lectures, Competitions, Field Visits) and optional caption. Use ExternalBlob.fromBytes() for image upload with progress tracking. Call uploadGalleryImage backend method. Verify the blob-storage component's usage instructions before implementing file upload. Include admin-only guard check."
+        },
+        {
+          "path": "frontend/src/hooks/useGalleryImages.ts",
+          "operation": "create",
+          "description": "Create custom hook useGalleryImages to fetch, upload, delete, and publish gallery images using React Query. Provide queries for getAllPublicGalleryImages and getGalleryImagesByCategory. Include mutations for uploadGalleryImage, deleteGalleryImage, and publishGalleryImage with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire GallerySection component into the main App layout after the Events section. Ensure authenticated admins can access the upload form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement Project Showcase section for student submissions",
+      "acceptanceCriteria": [
+        "Students can submit projects with all required fields",
+        "Submitted projects are displayed with title, description, technologies, team members, and demo link",
+        "Demo links are clickable and open in new tab",
+        "Projects can be browsed in a grid or list view"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProjectShowcaseSection.tsx",
+          "operation": "create",
+          "description": "Create ProjectShowcaseSection component displaying public projects in a grid layout. Fetch projects using getAllPublicProjects backend method. Display project title, description, tech used, team members, and demo link (clickable, opens in new tab). Use the icon-projects.dim_128x128.png from frontend/public/assets/generated as section header icon. Authenticated users can see their own projects using getMyProjects and can edit/delete them. Admins can publish projects."
+        },
+        {
+          "path": "frontend/src/components/ProjectSubmissionForm.tsx",
+          "operation": "create",
+          "description": "Create ProjectSubmissionForm component for authenticated users to submit projects with fields: title, description, tech used, team members, and optional demo link. Call submitProject backend method. Users can only edit their own projects using updateProject. Include authentication guard check using hasPermission for user role."
+        },
+        {
+          "path": "frontend/src/hooks/useProjects.ts",
+          "operation": "create",
+          "description": "Create custom hook useProjects to fetch, submit, update, delete, and publish projects using React Query. Provide queries for getAllPublicProjects and getMyProjects. Include mutations for submitProject, updateProject, deleteProject, and publishProject with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ProjectShowcaseSection component into the main App layout after the Gallery section. Ensure authenticated users can access the project submission form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create Achievements section with category management",
+      "acceptanceCriteria": [
+        "Achievements can be categorized as: Student awards, Competition wins, Grants received, or Research papers",
+        "Each achievement displays its category and details",
+        "Achievements can be added, edited, and deleted",
+        "Achievements are displayed in reverse chronological order"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AchievementsSection.tsx",
+          "operation": "create",
+          "description": "Create AchievementsSection component displaying public achievements sorted by date (newest first). Fetch achievements using getAllPublicAchievements backend method. Display title, category, description, date, and recipients. Use the icon-achievements.dim_128x128.png from frontend/public/assets/generated as section header icon. For admins, show add/edit/delete controls."
+        },
+        {
+          "path": "frontend/src/components/AchievementForm.tsx",
+          "operation": "create",
+          "description": "Create AchievementForm component for admins to add/edit achievements with fields: title, category (select with options: Student awards, Competition wins, Grants received, Research papers), description, date, and recipients. Call addAchievement or updateAchievement backend methods. Include admin-only guard check."
+        },
+        {
+          "path": "frontend/src/hooks/useAchievements.ts",
+          "operation": "create",
+          "description": "Create custom hook useAchievements to fetch, add, update, delete, and publish achievements using React Query. Provide queries for getAllPublicAchievements and getAchievementsByCategory. Include mutations for addAchievement, updateAchievement, removeAchievement, and publishAchievement with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire AchievementsSection component into the main App layout after the Project Showcase section. Ensure authenticated admins can access the achievement form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build Announcements section with chronological display",
+      "acceptanceCriteria": [
+        "Announcements can be created with title, content, and category (Meeting notice, Event update, or Opportunity alert)",
+        "Announcements display with timestamp",
+        "Announcements are sorted by date, newest first",
+        "Announcements can be edited and deleted"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AnnouncementsSection.tsx",
+          "operation": "create",
+          "description": "Create AnnouncementsSection component displaying public announcements sorted by timestamp (newest first). Fetch announcements using getAllPublicAnnouncements backend method. Display title, content, category badge, and formatted timestamp. Use the icon-announcements.dim_128x128.png from frontend/public/assets/generated as section header icon. For admins, show add/edit/delete controls."
+        },
+        {
+          "path": "frontend/src/components/AnnouncementForm.tsx",
+          "operation": "create",
+          "description": "Create AnnouncementForm component for admins to post/edit announcements with fields: title, content (textarea), and category (select with options: Meeting notice, Event update, Opportunity alert). Call postAnnouncement or updateAnnouncement backend methods. Include admin-only guard check."
+        },
+        {
+          "path": "frontend/src/hooks/useAnnouncements.ts",
+          "operation": "create",
+          "description": "Create custom hook useAnnouncements to fetch, post, update, delete, and publish announcements using React Query. Provide query for getAllPublicAnnouncements. Include mutations for postAnnouncement, updateAnnouncement, deleteAnnouncement, and publishAnnouncement with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire AnnouncementsSection component into the main App layout after the Achievements section. Ensure authenticated admins can access the announcement form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create Industry Collaboration section",
+      "acceptanceCriteria": [
+        "Partner companies can be listed with name and description",
+        "Problem statements can be posted with details",
+        "Internship opportunities can be listed with requirements and application links",
+        "Collaboration entries can be added, edited, and removed"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CollaborationSection.tsx",
+          "operation": "create",
+          "description": "Create CollaborationSection component displaying public industry collaborations. Fetch collaborations using getAllPublicCollaborations backend method. Display company name, problem statement, internship opportunity, and contact info in card format. Use the icon-collaboration.dim_128x128.png from frontend/public/assets/generated as section header icon. For admins, show add/edit/delete controls."
+        },
+        {
+          "path": "frontend/src/components/CollaborationForm.tsx",
+          "operation": "create",
+          "description": "Create CollaborationForm component for admins to add/edit collaborations with fields: company name, problem statement (textarea, optional), internship opportunity (textarea, optional), and contact info (text, optional). Call addCollaboration or updateCollaboration backend methods. Include admin-only guard check."
+        },
+        {
+          "path": "frontend/src/hooks/useCollaborations.ts",
+          "operation": "create",
+          "description": "Create custom hook useCollaborations to fetch, add, update, delete, and publish collaborations using React Query. Provide query for getAllPublicCollaborations. Include mutations for addCollaboration, updateCollaboration, removeCollaboration, and publishCollaboration with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire CollaborationSection component into the main App layout after the Announcements section. Ensure authenticated admins can access the collaboration form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Implement Resources section with category organization",
+      "acceptanceCriteria": [
+        "Resources are categorized as: Research papers, Learning links, Tools for students, or Innovation guides",
+        "Each resource has a title, description, and link or file attachment",
+        "Resources can be added, edited, and deleted",
+        "Resources are organized by category with clear visual separation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ResourcesSection.tsx",
+          "operation": "create",
+          "description": "Create ResourcesSection component displaying public resources organized by category. Fetch resources using getAllPublicResources backend method. Display title, description, and clickable link (opens in new tab) grouped by category (Research papers, Learning links, Tools for students, Innovation guides). Use the icon-resources.dim_128x128.png from frontend/public/assets/generated as section header icon. For admins, show add/edit/delete controls."
+        },
+        {
+          "path": "frontend/src/components/ResourceForm.tsx",
+          "operation": "create",
+          "description": "Create ResourceForm component for admins to add/edit resources with fields: title, category (select with options: Research papers, Learning links, Tools for students, Innovation guides), description, and link (URL). Call addResource or updateResource backend methods. Include admin-only guard check."
+        },
+        {
+          "path": "frontend/src/hooks/useResources.ts",
+          "operation": "create",
+          "description": "Create custom hook useResources to fetch, add, update, delete, and publish resources using React Query. Provide queries for getAllPublicResources and getResourcesByCategory. Include mutations for addResource, updateResource, removeResource, and publishResource with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ResourcesSection component into the main App layout after the Collaboration section. Ensure authenticated admins can access the resource form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create Join Us registration form",
+      "acceptanceCriteria": [
+        "Registration form includes fields: Name, Branch, Year, Skills, Interest area",
+        "Form validates required fields before submission",
+        "Submissions are stored in backend",
+        "Success message is shown after submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/JoinUsSection.tsx",
+          "operation": "create",
+          "description": "Create JoinUsSection component with registration form for authenticated users. Include fields: name (text, required), branch (text, required), year (text, required), skills (textarea, required), and interest area (textarea, required). Call submitRegistration backend method. Show success message after submission. Display user's existing registration using getMyRegistration if available. Include authentication guard check."
+        },
+        {
+          "path": "frontend/src/hooks/useRegistrations.ts",
+          "operation": "create",
+          "description": "Create custom hook useRegistrations to submit and fetch registrations using React Query. Provide queries for getMyRegistration and getAllRegistrations (admin-only). Include mutation for submitRegistration with proper cache invalidation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire JoinUsSection component into the main App layout after the Resources section. Ensure authenticated users can access the registration form."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Build Contact Us section with static information",
+      "acceptanceCriteria": [
+        "Contact information is clearly displayed",
+        "Email addresses are clickable mailto links",
+        "Social media links open in new tabs",
+        "Office location is prominently shown"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ContactSection.tsx",
+          "operation": "create",
+          "description": "Create ContactSection component displaying static contact information: email (mailto link), faculty contact details, office location (prominently displayed), and social media links (open in new tabs). Use a clean card or grid layout to organize the information clearly."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ContactSection component into the main App layout after the Join Us section, positioned near the footer."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Implement cohesive visual design with academic innovation theme",
+      "acceptanceCriteria": [
+        "Color scheme uses warm, energetic colors that convey innovation and education",
+        "Typography is clean, readable, and consistent",
+        "All sections follow the same design patterns",
+        "Interface feels cohesive and professional"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with academic innovation theme using warm, energetic colors (orange, teal, coral accents). Define CSS custom properties for primary colors, secondary colors, accent colors, and neutral tones. Ensure proper contrast for accessibility. Set base typography styles with clean, modern fonts. Add utility classes for consistent spacing and visual hierarchy."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration with custom color palette matching the academic innovation theme (orange, teal, coral). Configure custom font families for clean, modern typography. Add custom spacing and border radius values for consistent design patterns across all sections."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create Layout component providing consistent page structure with header (including navigation and login button), main content area, and footer. Apply the academic innovation theme styling with proper spacing and visual hierarchy. Ensure responsive design for mobile and desktop."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all section components in the Layout component to ensure consistent styling and structure throughout the application. Position the LoginButton component in the header for easy access."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Wire generated images as static assets",
+      "acceptanceCriteria": [
+        "Generated images are placed in frontend/public/assets/generated",
+        "Images are referenced correctly in components",
+        "Images load properly in the browser"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "create",
+          "description": "Create HeroSection component displaying the hero banner using frontend/public/assets/generated/hero-banner.dim_1920x600.png as background or main image. Include the council's name and tagline with prominent typography. Position this section at the top of the main layout."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire HeroSection component at the top of the main App layout, immediately after the header and before the About section. Verify that the hero-banner.dim_1920x600.png path is correctly referenced."
+        }
+      ]
+    }
+  ]
+}

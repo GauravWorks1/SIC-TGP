@@ -1,0 +1,8 @@
+{
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for all backend operations including team members, events, gallery, projects, achievements, announcements, collaborations, resources, and registrations with proper cache invalidation.",
+  "frontend/src/components/JoinUsSection.tsx": "Registration form section for students to join the innovation council with authentication check and existing registration display.",
+  "frontend/src/components/ContactSection.tsx": "Contact information section displaying email, faculty coordinator details, office location, and social media links in a card grid layout.",
+  "frontend/src/index.css": "Global styles with OKLCH color system featuring warm academic innovation theme with orange and teal primary colors for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom color palette, border radius, fonts (Inter and Poppins), and extended theme for the academic innovation design system.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog for first-time user profile setup that prompts authenticated users to enter their name, using undefined instead of null for optional UserProfile fields."
+}
